@@ -1,0 +1,228 @@
+#include <stdio.h>
+int count=0;
+void operation(int *x,int *y)
+{
+    if(count==0)
+    {
+        printf("1st\n");
+        *x=*x + *y;
+        count++;
+    }
+    else if(count==1)
+    { 
+        printf("2nd\n");
+        *x=(*x) * (*y);
+        count++;
+    }
+    else if(count==2)
+    {
+        printf("3rd\n");
+        *x= *x - *y;
+    }
+}
+
+int main()
+{
+    int a=10, b=20;
+    int *M=&a,*N=&b;
+    operation(M,N);
+    printf("The sum of the a and b is %d\n",*M);
+    a=10;
+    operation(M,N);
+    printf("The product of the a and b is %d\n",*M);
+    a=10;
+    operation(M,N);
+    printf("The difference of the a and b is %d\n",*M);
+    return 0;
+}
+
+#include <stdio.h>
+void summation(int *x,int *y, int *z)
+{
+    int result= *x + *y;
+
+}
+int product(int *x,int *y)
+{
+    int result= *x * (*y);
+    return result;
+}
+int diff(int *x, int *y)
+{
+    int result= *x - *y;
+    return result;
+}
+
+int main()
+{
+    int a=10, b=20;
+    int *M=&a,*N=&b;
+    
+    printf("The sum of the a and b is %d\n",summation(M,N));
+    printf("The product of the a and b is %d\n",product(M,N));
+    printf("The difference of the a and b is %d\n",diff(M,N));
+    return 0;
+}
+
+#include <stdio.h>
+void operation(int *x,int *y)
+{
+        static int count;
+        if(count==0)
+        {
+            printf("1st\n");
+            *x=*x + *y;
+            count++;
+        }
+        else if(count==1)
+        {
+            printf("2nd\n");
+            *x=(*x) * (*y);
+            count++;
+        }
+        else if(count==2)
+        {
+            printf("3rd\n");
+            *x= *x - *y;
+        }
+}
+
+int main()
+{
+    int a=10, b=20,count=0;
+    int *M=&a,*N=&b;
+    operation(M,N);
+    printf("The sum of the a and b is %d\n",*M);
+    count++;
+    a=10;
+    operation(M,N);
+    printf("The product of the a and b is %d\n",*M);
+    a=10;
+    operation(M,N);
+    printf("The difference of the a and b is %d\n",*M);
+    return 0;
+}
+
+#include <stdio.h>
+void swap_value(int a, int b)
+{
+    int temp;
+    temp=a;
+    a=b;
+    b=temp;
+    printf("The value of a and b is %d & %d respectively(swapped by passing just the values)\n",a,b);
+}
+int swap_address(int *a,int *b)
+{
+    int temp;
+    temp=*a;
+    *a=*b;
+    *b=temp;
+    return 0;
+}
+int main()
+{
+    int x=12,y=21;
+    int *M=&x;
+    int *N=&y;
+    printf("The values BEFORE swap(pass by value)==> %d & %d\n",x,y);
+    printf("\n\n\n\n");
+    swap_value(x,y);
+    printf("\n\n\n\n");
+    printf("The values AFTER swap(pass by value)==> %d & %d\n",x,y);
+    printf("##################--------------#######################\n");
+    printf("The values BEFORE swap(pass by reference)==> %d & %d\n",x,y);
+    printf("\n\n\n\n");
+    swap_address(M,N);
+    printf("The values AFTER swap(pass by value)==> %d & %d\n",x,y);
+    printf("\n\n\n\n");
+    return 0;
+}
+#include <stdio.h>
+void summation(int *x,int *y, int *z)
+{
+    int result= *x + *y;
+    *z= result;
+}
+void product(int *x,int *y, int *z)
+{
+    int result= *x * (*y);
+    *z= result;
+}
+void diff(int *x, int *y, int *z)
+{
+    int result= *x - *y;
+    *z= result;
+}
+
+int main()
+{
+    int a=10, b=20,c=0;
+    int *M=&a,*N=&b;
+    int *L=&c;
+    summation(M,N,L);
+    printf("The sum of the a and b is %d\n",*L);
+    product(M,N,L);
+    printf("The product of the a and b is %d\n",*L);
+    diff(M,N,L);
+    printf("The difference of the a and b is %d\n",*L);
+    return 0;
+}
+
+#include <stdio.h>
+void summation(int *x,int *y)
+{
+    *x+=*y;
+}
+void product(int *x,int *y)
+{
+    *x=(*x) *(*y);
+}
+void diff(int *x, int *y)
+{
+    *x-=*y;
+}
+
+int main()
+{
+    int a=10, b=20,c=0;
+    int *M=&a,*N=&b;
+    summation(M,N);
+    printf("The sum of the a and b is %d\n",*M);
+    a=10; 
+    product(M,N);
+    printf("The product of the a and b is %d\n",*M);
+    a=10; 
+    diff(M,N);
+    printf("The difference of the a and b is %d\n",*M);
+    return 0;
+}
+
+#include <stdio.h>
+void operation(int *x,int *y)
+{
+    int count=0;
+    if(count==0)
+        *x+=*y;
+        count++;
+    if(count==1)
+        *x=(*x) *(*y);
+        count++;
+    if(count==2)
+        *x-=*y;
+}
+
+int main()
+{
+    int a=10, b=20,c=0;
+    int *M=&a,*N=&b;
+    operation(M,N);
+    printf("The sum of the a and b is %d\n",*M);
+    a=10;
+    operation(M,N);
+    printf("The product of the a and b is %d\n",*M);
+    a=10;
+    operation(M,N);
+    printf("The difference of the a and b is %d\n",*M);
+    return 0;
+}
